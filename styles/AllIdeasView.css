@@ -232,30 +232,3 @@
   background-color: #fef3c7;
   color: #92400e;
 }
-
-/* Tab button active state */
-.ideas-tab-btn-active {
-  border-bottom-color: #2563eb;
-  color: #2563eb;
-}
-
-/* Card footer */
-.ideas-card-footer {
-  padding: 1rem 1.5rem;
-  border-top: 1px solid #e2e8f0;
-  background-color: #f8fafc;
-  flex-shrink: 0;
-}
-
-.ideas-footer-text {
-  font-size: 0.875rem;
-  color: #94a3b8;
-}
-
-/* Empty state */
-.ideas-empty {
-  padding: 3rem 1.5rem;
-  text-align: center;
-  color: #94a3b8;
-  font-size: 0.875rem;
-}

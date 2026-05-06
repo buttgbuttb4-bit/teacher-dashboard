@@ -4,6 +4,7 @@ import { INITIAL_IDEAS } from './data';
 import DashboardView from './components/DashboardView';
 import AllIdeasView from './components/AllIdeasView';
 import ProgressView from './components/ProgressView';
+import Upload from './components/Upload';
 import './styles/main.css';
 import './styles/utilities.css';
 import './styles/scrollbar.css';
@@ -54,6 +55,13 @@ const Navigation = () => {
               <span className="material-symbols-outlined nav-icon">bar_chart</span>
               <p className={`nav-text ${isActive('/progress') ? 'active' : ''}`}>Progress</p>
             </Link>
+            <Link 
+              to="/upload"
+              className={`nav-button ${isActive('/upload') ? 'active' : ''}`}
+            >
+              <span className="material-symbols-outlined nav-icon">upload</span>
+              <p className={`nav-text ${isActive('/upload') ? 'active' : ''}`}>Upload</p>
+            </Link>
           </nav>
         </div>
         {/* Footer */}
@@ -92,6 +100,7 @@ const Navigation = () => {
               <Route path="/dashboard" element={<DashboardView />} />
               <Route path="/allideas" element={<AllIdeasView />} />
               <Route path="/progress" element={<ProgressView />} />
+              <Route path="/upload" element={<Upload />} />
               <Route path="/" element={<DashboardView />} />
             </Routes>
           </div>
