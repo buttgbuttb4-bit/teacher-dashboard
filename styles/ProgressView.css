@@ -1,0 +1,267 @@
+/* Progress View - Updated with correct class names */
+.prog-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.prog-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.prog-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.prog-title {
+  font-size: 1.875rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.prog-subtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+/* Session Tabs */
+.prog-tabs-wrapper {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.prog-tabs {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+}
+
+.prog-tab-btn {
+  white-space: nowrap;
+  padding: 1rem 0.25rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.prog-tab-btn:hover {
+  color: #334155;
+  border-bottom-color: #cbd5f5;
+}
+
+.prog-tab-btn-active {
+  border-bottom-color: #2563eb;
+  color: #2563eb;
+}
+
+.prog-tab-icon {
+  font-size: 20px;
+}
+
+/* Progress List Container */
+.prog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Progress Card */
+.prog-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: auto;
+  max-height: fit-content;
+}
+
+.prog-card-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prog-group-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.prog-group-label-primary {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.prog-group-label-purple {
+  background-color: #e9d5ff;
+  color: #7c3aed;
+}
+
+.prog-group-label-emerald {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.prog-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.prog-card-leader {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.prog-card-leader span {
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Progress Section */
+.prog-card-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  overflow: hidden;
+}
+
+.prog-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prog-progress-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.prog-progress-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.prog-progress-bar-bg {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.prog-progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 100%;
+}
+
+.prog-progress-bar-emerald {
+  background: linear-gradient(to right, #10b981, #34d399);
+}
+
+.prog-progress-bar-primary {
+  background: linear-gradient(to right, #10b981, #34d399);
+}
+
+.prog-progress-bar-amber {
+  background: linear-gradient(to right, #10b981, #34d399);
+}
+
+.prog-progress-milestones {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.prog-progress-milestones span:first-child {
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Action Section */
+.prog-card-action {
+  margin-top: 0.5rem;
+}
+
+.prog-btn-view {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.prog-btn-view:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border-color: #cbd5e1;
+}
+
+.prog-btn-view-icon {
+  font-size: 16px;
+}
+
+/* Empty State */
+.prog-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+}
+
+.prog-empty-text {
+  font-size: 0.875rem;
+  color: #64748b;
+}

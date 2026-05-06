@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { INITIAL_IDEAS } from '../data';
+import '../styles/AllIdeasView.css';
 
-const AllIdeasView = ({ ideas }) => {
+const AllIdeasView = () => {
+  const [ideas] = useState(INITIAL_IDEAS);
   const [currentTab, setCurrentTab] = useState('Accepted');
 
   const filteredIdeas = ideas.filter(idea => {

@@ -1,33 +1,18 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { INITIAL_IDEAS } from './data';
 import DashboardView from './components/DashboardView';
 import AllIdeasView from './components/AllIdeasView';
 import ProgressView from './components/ProgressView';
+import './styles/main.css';
+import './styles/utilities.css';
+import './styles/scrollbar.css';
 
-const App = () => {
-  const [currentView, setCurrentView] = useState('dashboard');
-  const [ideas, setIdeas] = useState(INITIAL_IDEAS);
-
-  const handleUpdateStatus = (id, status, feedback) => {
-    setIdeas(prev => prev.map(idea => {
-      if (idea.id === id) {
-        return { ...idea, status };
-      }
-      return idea;
-    }));
-  };
-
-  const renderView = () => {
-    switch(currentView) {
-      case 'dashboard':
-        return <DashboardView ideas={ideas} onUpdateStatus={handleUpdateStatus} />;
-      case 'all-ideas':
-        return <AllIdeasView ideas={ideas} />;
-      case 'progress':
-        return <ProgressView ideas={ideas} />;
-      default:
-        return <DashboardView ideas={ideas} onUpdateStatus={handleUpdateStatus} />;
-    }
+const Navigation = () => {
+  const location = useLocation();
+  
+  const isActive = (path) => {
+    return location.pathname === path;
   };
 
   return (
@@ -48,27 +33,27 @@ const App = () => {
           </div>
           {/* Navigation */}
           <nav className="nav-menu">
-            <button 
-              onClick={() => setCurrentView('dashboard')}
-              className={`nav-button ${currentView === 'dashboard' ? 'active' : ''}`}
+            <Link 
+              to="/dashboard"
+              className={`nav-button ${isActive('/dashboard') ? 'active' : ''}`}
             >
               <span className="material-symbols-outlined nav-icon">dashboard</span>
-              <p className={`nav-text ${currentView === 'dashboard' ? 'active' : ''}`}>Dashboard</p>
-            </button>
-            <button 
-              onClick={() => setCurrentView('all-ideas')}
-              className={`nav-button ${currentView === 'all-ideas' ? 'active' : ''}`}
+              <p className={`nav-text ${isActive('/dashboard') ? 'active' : ''}`}>Dashboard</p>
+            </Link>
+            <Link 
+              to="/allideas"
+              className={`nav-button ${isActive('/allideas') ? 'active' : ''}`}
             >
               <span className="material-symbols-outlined nav-icon">tips_and_updates</span>
-              <p className={`nav-text ${currentView === 'all-ideas' ? 'active' : ''}`}>All Ideas</p>
-            </button>
-            <button 
-              onClick={() => setCurrentView('progress')}
-              className={`nav-button ${currentView === 'progress' ? 'active' : ''}`}
+              <p className={`nav-text ${isActive('/allideas') ? 'active' : ''}`}>All Ideas</p>
+            </Link>
+            <Link 
+              to="/progress"
+              className={`nav-button ${isActive('/progress') ? 'active' : ''}`}
             >
               <span className="material-symbols-outlined nav-icon">bar_chart</span>
-              <p className={`nav-text ${currentView === 'progress' ? 'active' : ''}`}>Progress</p>
-            </button>
+              <p className={`nav-text ${isActive('/progress') ? 'active' : ''}`}>Progress</p>
+            </Link>
           </nav>
         </div>
         {/* Footer */}
@@ -88,7 +73,8 @@ const App = () => {
             <span>Teacher Admin</span>
             <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>chevron_right</span>
             <span className="current">
-              {currentView === 'dashboard' ? 'Dashboard' : currentView === 'all-ideas' ? 'All Ideas' : 'Student Progress'}
+              {location.pathname === '/dashboard' ? 'Dashboard' : 
+               location.pathname === '/allideas' ? 'All Ideas' : 'Student Progress'}
             </span>
           </div>
           <div className="header-actions">
@@ -102,11 +88,24 @@ const App = () => {
         {/* Scrollable Content */}
         <div className="content-area">
           <div className="content-wrapper">
-             {renderView()}
+            <Routes>
+              <Route path="/dashboard" element={<DashboardView />} />
+              <Route path="/allideas" element={<AllIdeasView />} />
+              <Route path="/progress" element={<ProgressView />} />
+              <Route path="/" element={<DashboardView />} />
+            </Routes>
           </div>
         </div>
       </main>
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <Navigation />
+    </Router>
   );
 };
 

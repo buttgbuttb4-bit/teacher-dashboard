@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { INITIAL_IDEAS } from '../data';
+import '../styles/ProgressView.css';
 
-const ProgressView = ({ ideas }) => {
+const ProgressView = () => {
+  const [ideas] = useState(INITIAL_IDEAS);
   const [session, setSession] = useState('Morning');
 
   // Only show accepted ideas in progress

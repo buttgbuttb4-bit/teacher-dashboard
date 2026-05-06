@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { INITIAL_IDEAS } from '../data';
+import '../styles/DashboardView.css';
 
-const DashboardView = ({ ideas, onUpdateStatus }) => {
+const DashboardView = () => {
+  const [ideas, setIdeas] = useState(INITIAL_IDEAS);
   const pendingIdeas = ideas.filter(i => i.status === 'Pending');
   const [selectedId, setSelectedId] = useState(null);
   const [feedback, setFeedback] = useState('');
   const [uploadedFile, setUploadedFile] = useState(null);
-  const [] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
   const fileInputRef = useRef(null);
 
